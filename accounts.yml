@@ -1,5 +1,7 @@
 
 
+server:
+  port: 9001  # The Accounts microservice runs on port 9000
 
 
 spring:
