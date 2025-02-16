@@ -1,35 +1,28 @@
-
-
 server:
-  port: 9001  # The Accounts microservice runs on port 9000
-
+  port: 9001  # The Accounts microservice runs on port 9001
 
 spring:
+  application:
+    name: "accounts"
   datasource:
     url: jdbc:mysql://localhost:3306/session2
     username: root
     password: 682000
+    driver-class-name: com.mysql.cj.jdbc.Driver  # ✅ Ensure driver is specified
   jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect  # ✅ Recommended way to specify dialect
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
     hibernate:
       ddl-auto: update
     show-sql: true
-
-applications:
-  name: "accounts"
-server:
-  port: 8080
-
-build:
-  version: "3.0"
-
   config:
     import:
       - "accounts_qa.yml"
       - "accounts_prod.yml"
-    profiles:
-      active:
-        - "prod"
+    activate:
+      on-profile: "prod"  # ✅ Correct way to activate a profile
+
+build:
+  version: "3.0"
