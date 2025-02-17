@@ -15,3 +15,21 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to EazyBank accounts related prod APIs"
+  contactDetails:
+    name: " shawky mohamed- Product Owner"
+    email: "aishwarya@eazybank.com"
+  onCallSupport:
+    - (453) 392-4829
+    - (236) 203-0384
